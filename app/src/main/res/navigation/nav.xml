@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/todoFragment">
+
+    <fragment
+        android:id="@+id/todoFragment"
+        android:name="com.example.todo_application.screens.todo.TodoFragment"
+        android:label="Todo"
+        tools:layout="@layout/fragment_todo">
+        <action
+            android:id="@+id/action_todoFragment_to_singleTaskFragment"
+            app:destination="@id/singleTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleTaskFragment"
+        android:name="com.example.todo_application.screens.singletodo.SingleTaskFragment"
+        android:label="Task"
+        tools:layout="@layout/fragment_single_task">
+        <argument
+            android:name="data"
+            app:argType="com.example.todo_application.model.DataPassed" />
+        <action
+            android:id="@+id/action_singleTaskFragment_to_todoFragment"
+            app:destination="@id/todoFragment"
+            app:popUpTo="@id/todoFragment" />
+    </fragment>
+</navigation>
